@@ -1,0 +1,41 @@
+{% extends "auctions/layout.html" %}
+
+{%block body%}
+
+<br>
+
+{% if message  %}
+
+<div class="alert alert-danger">
+
+    {{message}}
+
+</div>
+
+{%endif%}
+
+{% for product in products%}
+
+<div>       
+    <h3> {{product.title}} </h3><br>
+    <img src="{{product.image.url}}" alt="" width="300"> 
+</div>
+<div>
+    <li>{{product.date}}</li>
+</div>
+<div>
+    Description
+   <li>{{product.description}}</li> 
+</div>
+<div>Seller
+    <li>{{product.seller}}</li>
+</div>
+
+<div>Category
+    <li>{{product.selectcategory}}</li>
+</div>
+<div>Status
+    <li>{{product.active}}</li>
+</div>
+{%endfor%}
+{%endblock%}

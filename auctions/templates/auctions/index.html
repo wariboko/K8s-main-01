@@ -1,0 +1,48 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+{% include "auctions/slider.html" %}
+
+    
+        <div class="container mb-4">
+            <div class="index-bottom">
+                <div class="row">
+                
+                    {% for auction in auctions %}
+                
+                    {%if auction.active == "Active" %}
+                
+                    <div class="col-lg-3 col-sm-6 pr-2 mb-4">
+                
+                        <div class="listing">
+                
+                            <h4 class="pd-2 pr-2 pl-2 pt-2"> {{auction.title}} </h4>
+                
+                            <div class="center-align">
+                
+                                <img src="{{auction.image.url}}" alt="" width="300" height="250">
+                
+                            </div>
+                
+                            <div class="row">
+                
+                                <p class="col-6 ml-2">${{auction.price}}</p>
+                
+                                <a class="btn btn-light col-5 pr-2" href="{% url 'indexItem' auction_id=auction.id%}">View details
+                                    &raquo;</a>
+                
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    {%endif%}
+                    {%endfor%}
+                </div>
+
+            </div>
+        </div>
+   
+        
+                              
+{% endblock %}

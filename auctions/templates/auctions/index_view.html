@@ -1,0 +1,44 @@
+{% extends "auctions/layout.html" %}
+
+{%block body%}
+
+{% include "auctions/index-view-swiper.html" %}
+<div class="container margin-bottom">
+
+    <div class="row featurette">
+        <div class="col-lg-12">
+            <i class="fa fa-toggle-on"  aria-hidden="true">{{product.active}}</i>
+
+            <div>
+                <h2>{{product.title}} </h2><br>
+            </div>
+
+            <div>
+                Description
+                <p>{{product.description}}</p>
+            </div>
+
+            <div>
+                Price
+                <p class="col-6 ml-2">${{product.price}}</p>
+            </div>
+
+            <div>
+                Seller
+                <p class="col-6 ml-2">{{product.seller}}</p>
+            </div>
+
+        </div>
+
+        <div>
+            <a href="{% url 'addWatchlist' auction_id=product.id %}" class="btn btn-light col-2 pr-2">Add to
+                Watchlist</a>
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+
+</div>
+
+{% endblock %}

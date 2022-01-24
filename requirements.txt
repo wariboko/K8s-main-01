@@ -1,0 +1,11 @@
+
+asgiref
+Django
+Pillow
+pip   
+pytz
+setuptools
+sqlparse
+psycopg2-binary
+google-cloud-secret-manager
+PyMySQL

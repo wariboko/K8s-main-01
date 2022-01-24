@@ -1,0 +1,155 @@
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+.swiper-container {
+    width: auto;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.headingCenter {
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+}
+
+.decoration{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.menu-item :hover {
+    background-color: pink;
+    color: bisque;
+  }
+
+
+.item_title {
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+
+}
+
+.listing {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.0);
+    transition: 0.3s;
+    width: 100%;
+    border-radius: 10px;
+    
+  }
+
+.listing:hover {
+  box-shadow: 0 13px 15px rgba(0,0,0,0.6);
+}
+
+
+img {
+    padding: 15px 15px;
+    align-self:auto;
+}
+
+.center-align {
+    display: flex;
+    justify-content: center;
+}
+.center-align > img {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+.marketing {
+    margin-top: 39px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+
+  .marketing h2 {
+    font-weight: 400;
+    text-align: center;
+  }
+
+
+.text-decoration {
+    text-decoration: none;
+    position: relative;
+    padding: 0px 25px;
+    display: inline-block;
+    width: 100%;
+    color: black;
+}
+
+.img-container {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+background: url(../icon.png) no-repeat center;
+align-self: center;
+background-size: contain;
+}
+
+.category-container {
+    display: flex;
+    position: relative;
+    width: 11%;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px;
+    display: inline-block;
+   
+}
+   
+
+.index-bottom{
+    display: inline-block;
+    position: relative;
+    margin-bottom: 65px;
+}
+
+.margin-bottom {
+    margin-bottom: 100px;
+}
+
+
+/* respensive */
+
+@media only screen and (max-width: 600px) {
+    .category-container {
+        width: 25%;
+    }
+  }
+

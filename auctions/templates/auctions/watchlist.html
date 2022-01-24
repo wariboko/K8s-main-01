@@ -1,0 +1,50 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+{%if message%}
+
+<div class="alert alert-success" role="alert">
+
+    {{message}}
+
+</div>
+
+{% endif %}
+
+<div class="container margin-bottom">
+    <h3 style="text-align:center;">Watchlist</h3>
+  {% for product in product_watchlist %}
+      <div class="row featurette">
+          <div class="col-md-7">
+              <li style="text-align: right;">{{product.product_id.active}}</li>
+              <div >
+                  <h2>{{product.product_id.title}} </h2><br>
+              </div>
+              
+              <div>
+                      Description
+                  <li>{{product.product_id.description}}</li>
+              </div>
+              <div>
+                  Seller
+                  <li>{{product.product_id.seller}}</li>
+              </div>
+              
+              
+            </div>
+            <div class="col-md-5">
+                <img src="{{product.product_id.image.url}}" alt="" width="500" height="500"> 
+            </div>
+            <a class="btn btn-light col-2 pr-2" href="{% url 'remove_watchlist' auction_id=product.product_id.id %}">Remove From Watchlist</a>
+      </div>
+
+      <hr class="featurette-divider">
+
+  {%endfor%}
+
+</div>
+
+
+
+{% endblock %}

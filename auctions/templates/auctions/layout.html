@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <script src="https://use.fontawesome.com/4e6d04bfb5.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <title>Auctions</title>
+        <link rel="shortcut icon" type="image/ico" href="{% static 'favico.ico' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'auctions/background.css' %}">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+        
+    </head>
+
+    <body>
+        <header class="p-3 bg-dark text-white">
+            <div class="container">
+                <div div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <div>
+                        {% if user.is_authenticated %}
+                            Welcome <br><strong>{{ user.username }}</strong>.
+                        {% else %}
+                            Not signed in.
+                        {% endif %}
+                    </div>
+                    
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 dropdown show">
+                        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+                          </a>
+                        
+                            <a class="nav-link px-2 text-white" href="{% url 'index' %}">Home</a>
+                        
+            
+                        {% if user.is_authenticated %}
+                    
+                                
+                                    <a class="nav-link px-2 text-white dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        Category
+                                    </a>
+                                
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        {% for category in categories%}
+                                        <a class="dropdown-item" value="{{category.id}}" href="{% url 'categoryList' category_id=category.id %}">{{category}}</a>
+                                        {%endfor%}
+                                    </div>
+                         
+                            
+                                <a class="nav-link px-2 text-white" href="{% url 'watchlist' %}">Watchlist</a>
+
+                                <a class="nav-link px-2 text-white" href="{% url 'createListing' %}">Upload</a>
+                            
+                    </ul>
+
+
+                                <div class="text-end">
+                                    <a  style="text-align: right;" class="btn btn-warning" href="{% url 'logout' %}">Log Out</a>
+
+                                </div>
+                            
+                            {% else %}
+        
+                            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        
+                                <input type="search" class="form-control form-control-dark" placeholder="Search...">
+        
+                            </form>
+        
+                            <div >
+                                <a class="btn btn-outline-light me-2" href="{% url 'login' %}">Log In</a>
+                           
+                                <a class="btn btn-warning" href="{% url 'register' %}">Register</a>
+                            </div>
+                           
+                           
+                        {% endif %}
+            
+
+                </div>
+
+            </div>
+        </header>
+    
+
+        <hr>
+        {% block body %}
+        
+        {% endblock %}
+
+        <footer class="bg-dark text-center text-white footer">
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.192);">
+                &copy; {{ year }}
+            <a class="text-white" href="http://www.westcharts.com" style="text-decoration: none;" target="_blank">westcharts.com</a>
+            </div>
+        </footer>
+    </body>
+</html>
