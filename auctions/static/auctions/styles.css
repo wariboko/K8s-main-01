@@ -141,7 +141,10 @@ background-size: contain;
 }
 
 .margin-bottom {
-    margin-bottom: 100px;
+    
+    margin-bottom: 150px;
+  display: inline-block;
+  position: relative;
 }
 
 
@@ -153,3 +156,9 @@ background-size: contain;
     }
   }
 
+  .conTainer {
+    max-width: 960px;
+    margin-bottom: 50px;
+    display: inline-block;
+    position: relative;
+  }

@@ -8,49 +8,48 @@
 {% if message %}
 <div>{{ message }}</div>
 {% endif %}
-<div class="container">
-    <div class="margin-bottom">
+<div class="conTainer">
 
-        <form action="{% url 'createListing' %}" method="POST" enctype=multipart/form-data>
-            {% csrf_token %}
-            <div class="form-group">
-                <input class="form-control" autofocus type="text" name="title" placeholder="Title">
-            </div>
-            <div class="form-group">
-                <textarea class="form-control" name="description" rows="4" placeholder="Description"></textarea>
-            </div>
-            <div class="form-group">
-                <select class="form-select" aria-label="Default select example" name="category">
-                    {% for category in categories %}
-                    <option value="{{category.id}}">{{category.category}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" name="price" placeholder="price">
-            </div>
-            <div class="form-group">
-                <select class="form-select" aria-label="Default select example" name="active" required=""
-                    id="id_active">
+    <form action="{% url 'createListing' %}" method="POST" enctype=multipart/form-data>
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" autofocus type="text" name="title" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" name="description" rows="4" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+            <select class="form-select" aria-label="Default select example" name="category">
+                {% for category in categories %}
+                <option value="{{category.id}}">{{category.category}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="price" placeholder="price">
+        </div>
+        <div class="form-group">
+            <select class="form-select" aria-label="Default select example" name="active" required=""
+                id="id_active">
 
-                    <option selected>Active</option>
+                <option selected>Active</option>
 
-                    <option value="Active">Active</option>
+                <option value="Active">Active</option>
 
-                    <option value="Closed">Closed</option>
+                <option value="Closed">Closed</option>
 
-                    <option value="Sold">Sold</option>
+                <option value="Sold">Sold</option>
 
-                </select>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="file" name="image" placeholder="Image" multiple>
-                <label>Add more:</label>
-                <input class="form-control" type="file" name="images" placeholder="Add more" multiple>
-            </div>
-            <input class="btn btn-primary" type="submit" value="Create">
-        </form>
-    </div>
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="file" name="image" placeholder="Image" multiple>
+            <label>Add more:</label>
+            <input class="form-control" type="file" name="images" placeholder="Add more" multiple>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Create">
+    </form>
+
 
 </div>
 <!-- End Jumbotron -->
