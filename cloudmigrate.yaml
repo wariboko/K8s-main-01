@@ -45,7 +45,7 @@ steps:
 substitutions:
   _INSTANCE_NAME: wariboko14
   _REGION: us-central1
-  _SERVICE_NAME: ecommerce-service
+  _SERVICE_NAME: ecommerce-services
   _SECRET_SETTINGS_NAME: django_settings
 
 images:
