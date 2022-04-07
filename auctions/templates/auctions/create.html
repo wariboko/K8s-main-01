@@ -19,7 +19,7 @@
             <textarea class="form-control" name="description" rows="4" placeholder="Descriptions"></textarea>
         </div>
         <div class="form-group">
-            <select class="form-select" aria-label="Default select example" name="category">
+            <select class="form-select" aria-label="Default select example" name="categorys">
                 {% for category in categories %}
                 <option value="{{category.id}}">{{category.category}}</option>
                 {% endfor %}
